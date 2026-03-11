@@ -1,28 +1,35 @@
-# Python Network Security Toolkit
-A modular, CLI tool designed for network traffic analysis. Uses python, raw socket handling, multi threaded scanning, and packet sniffing via Scapy. 
+# Python Network Security Tool
+A modular, CLI tool designed for network traffic analysis. Uses python, raw socket handling, multi-threaded scanning, and packet sniffing with Scapy. 
 
 ## Features
 ### 1. TCP Port Scanner
-- Uses the socket library in Python to attempt TCP handshakes
-- Uses multi threading to scan 254 hosts at the same time
-- Identifies active hosts on a specific subnet and checks for open ports
+- Identifies active hosts and checks for open TCP ports across specific subnets.
+- Implements multi-threading queue managing to simultaneously scan 254 hosts, reducing scan times across large networks.
+- Utilizes standard Python sockets to perform TCP handshakes. 
 
 ### 2. ARP Scanner
-- Uses Scapy to create and send out ARP requests across the local network
-- Bypasses OS level lists to direclty check the network and returns a mapping of IP addresses to MAC addresses
-- Indentifies all devices connected 
+- Bypasses OS level ARP caches to send ARP requests directly across the local network using Scapy. 
+- Returns an accurate, realtime mapping of IP addresses to MAC addresses. 
 
 ### 3. HTTP Packet Sniffer
-- Uses Scapy to intercept raw traffic
+- Captures and filters live network traffic to monitor TCP and UDP communication.
+- Specifically targets port 80 traffic.
 
-### Tech Stack
-#### Language: 
-- Python
-#### Libraries:
-- scapy
-- socket
-- threading
-- queue
+## Tech Stack
+* **Language:** Python 3.x 
+* **Libraries:** `scapy`, `socket`, `threading`, `queue`, `sys`, `time`
 
-#### Prerequisites 
-- OS: Linux (Kali Linux or Ubuntu) or macOS
+## Prerequisites
+* **Operating System:** Linux (Kali Linux or Ubuntu) or macOS.
+* **Permissions:** Root/Sudo privileges are required to access the ARP scanner and Packet Sniffer due to raw socket use.
+
+## Installation & Use
+
+1. Clone the repository:
+   git clone https://github.com/Yabdalla01/Network-Security-Tool.git
+   cd Network-Security-Tool
+
+2. Run the tool:
+   sudo python3 main.py
+
+3. Select the desired feature from the menu.
